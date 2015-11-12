@@ -8,10 +8,9 @@ public class Provider {
     public Provider (){
     }
 
-    public Provider (int idProvider, String providerName){
+    public Provider (String providerName){
         super();
 
-        this.idProvider = idProvider;
         this.providerName = providerName;
     }
 

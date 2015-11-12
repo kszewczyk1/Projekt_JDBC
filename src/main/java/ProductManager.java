@@ -14,7 +14,6 @@ public class ProductManager {
     private static PreparedStatement addProductStmt;
     private static PreparedStatement deleteAllProductsStmt;
     private static PreparedStatement getAllProductsStmt;
-    private static PreparedStatement getProductStmt;
     private Statement stmt;
 
     public ProductManager() {
