@@ -13,6 +13,7 @@ public class ProviderManager {
 
     private static PreparedStatement addProviderStmt;
     private static PreparedStatement deleteProviderStmt;
+    private static PreparedStatement updateProviderStmt;
     private static PreparedStatement getAllProvidersStmt;
     private Statement stmt;
 
@@ -35,6 +36,7 @@ public class ProviderManager {
 
             addProviderStmt = conn.prepareStatement("INSERT INTO Provider(providerName) VALUES (?)");
             deleteProviderStmt = conn.prepareStatement("DELETE FROM Provider WHERE idProvider=?");
+            updateProviderStmt = conn.prepareStatement("UPDATE Provider SET providerName = ? WHERE idProvider = ?");
             getAllProvidersStmt = conn.prepareStatement("SELECT idProvider, providerName FROM Provider");
         } catch (SQLException e){
             e.printStackTrace();
@@ -83,4 +85,16 @@ public class ProviderManager {
         return providerList;
     }
 
+    public int updateProvider(Provider provider){
+        int count = 0;
+        try {
+            updateProviderStmt.setString(1, provider.getProviderName());
+            updateProviderStmt.setInt(2, provider.getIdProvider());
+
+            count = updateProviderStmt.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return count;
+    }
 }
