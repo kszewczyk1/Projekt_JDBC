@@ -40,7 +40,7 @@ public class ProductManager {
             deleteProductStmt = conn.prepareStatement("DELETE FROM Product WHERE idProduct=?");
             updateProductStmt = conn.prepareStatement("UPDATE Product SET productName = ?, productDescription = ?, price = ? WHERE idProduct = ?");
             getAllProductsStmt = conn.prepareStatement("SELECT idProduct, idProvider, productName, productDescription, price FROM Product");
-            getAllProvidersByProductStmt = conn.prepareStatement("SELECT idProvider, providerName FROM Provider WHERE idProduct = ?");
+            getAllProvidersByProductStmt = conn.prepareStatement("SELECT idProvider, providerName FROM Provider WHERE idProvider = ?");
             deleteAllProductsByProviderStmt = conn.prepareStatement("DELETE FROM Products WHERE idProvider = ?");
         } catch (SQLException e){
             e.printStackTrace();
