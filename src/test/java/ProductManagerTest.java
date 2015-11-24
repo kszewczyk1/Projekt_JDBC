@@ -51,13 +51,4 @@ public class ProductManagerTest {
         assertEquals(1, p1.getIdProvider());
         assertEquals("Dostawca2", p1.getProviderName());
     }
-
-    @Test
-    public void checkDeleteAllProductsByProvider(){
-        pm1.addProvider(p1);
-        pm.addProduct(p);
-
-        assertEquals(1, pm.deleteAllProductsByProvider(p1));
-    }
-
 }

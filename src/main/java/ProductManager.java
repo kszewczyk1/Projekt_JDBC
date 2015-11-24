@@ -12,7 +12,6 @@ public class ProductManager {
     private static PreparedStatement deleteProductStmt;
     private static PreparedStatement getAllProductsStmt;
     private static PreparedStatement getAllProvidersByProductStmt;
-    private static PreparedStatement deleteAllProductsByProviderStmt;
     private Statement stmt;
 
     public ProductManager() {
@@ -36,7 +35,6 @@ public class ProductManager {
             deleteProductStmt = conn.prepareStatement("DELETE FROM Product WHERE idProduct=?");
             getAllProductsStmt = conn.prepareStatement("SELECT idProduct, idProvider, productName, productDescription, price FROM Product");
             getAllProvidersByProductStmt = conn.prepareStatement("SELECT idProvider, providerName FROM Provider WHERE idProvider = ?");
-            deleteAllProductsByProviderStmt = conn.prepareStatement("DELETE FROM Product WHERE idProvider = ?");
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -109,16 +107,5 @@ public class ProductManager {
             e.printStackTrace();
         }
         return providerList;
-    }
-
-    public int deleteAllProductsByProvider(Provider p){
-        int count = 0;
-        try{
-            deleteAllProductsByProviderStmt.setInt(1, p.getIdProvider());
-            count = deleteAllProductsByProviderStmt.executeUpdate();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return count;
     }
 }

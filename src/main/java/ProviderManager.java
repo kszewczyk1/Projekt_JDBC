@@ -64,19 +64,19 @@ public class ProviderManager {
     }
 
     public List<Provider> getAllProviders() {
-        List<Provider> providerList = new ArrayList<Provider>();
+                List<Provider> providerList = new ArrayList<Provider>();
 
-        try {
-            ResultSet rs = getAllProvidersStmt.executeQuery();
+                try {
+                    ResultSet rs = getAllProvidersStmt.executeQuery();
 
-            while (rs.next()) {
-                Provider provider = new Provider();
-                provider.setIdProvider(rs.getInt("idProvider"));
-                provider.setProviderName(rs.getString("providerName"));
-                providerList.add(provider);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+                    while (rs.next()) {
+                        Provider provider = new Provider();
+                        provider.setIdProvider(rs.getInt("idProvider"));
+                        provider.setProviderName(rs.getString("providerName"));
+                        providerList.add(provider);
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
         }
 
         return providerList;
