@@ -2,9 +2,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Krystian Szewczyk on 2015-11-11.
- */
 public class ProviderManager {
     private static Connection conn;
     private String url = "jdbc:hsqldb:hsql://localhost/workdb";

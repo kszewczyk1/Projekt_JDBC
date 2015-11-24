@@ -1,6 +1,3 @@
-/**
- * Created by Krystian Szewczyk on 2015-11-11.
- */
 public class Product {
     private int idProduct;
     private int idProvider;

@@ -1,17 +1,11 @@
 import org.junit.Test;
-
 import java.util.List;
-import java.util.PriorityQueue;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-/**
- * Created by Krystian Szewczyk on 2015-11-12.
- */
 public class ProviderManagerTest {
     ProviderManager pm = new ProviderManager();
-    Provider p = new Provider("Przykładowy dostawca");
+    Provider p = new Provider("Dostawca2");
     private String provider1 = "Dostawca1";
     private String provider2 = "Dostawca2";
 

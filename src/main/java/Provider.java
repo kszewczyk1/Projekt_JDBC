@@ -1,6 +1,3 @@
-/**
- * Created by Krystian Szewczyk on 2015-11-11.
- */
 public class Provider {
     private int idProvider;
     private String providerName;

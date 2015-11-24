@@ -1,13 +1,8 @@
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-/**
- * Created by Krystian Szewczyk on 2015-11-11.
- */
 public class ProductManagerTest {
     ProductManager pm = new ProductManager();
     ProviderManager pm1 = new ProviderManager();
@@ -46,32 +41,6 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void checkUpdateProvider(){
-        Product p = new Product(id1, product1, desc1, price1);
-
-        assertEquals(1, pm.addProduct(p));
-
-        List<Product> pl = pm.getAllProducts();
-        Product p1 = pl.get(0);
-
-        p1.setIdProvider(id2);
-        p1.setProductName(product2);
-        p1.setProductDescription(desc2);
-        p1.setPrice(price2);
-
-        assertEquals(1, pm.updateProduct(p1));
-
-        List<Product> pl2 = pm.getAllProducts();
-        Product p2 = pl2.get(0);
-
-        assertEquals(id2, p2.getIdProvider());
-        assertEquals(product2, p2.getProductName());
-        assertEquals(desc2, p2.getProductDescription());
-        assertEquals(price2, p2.getPrice(), 0);
-        assertEquals(p2.getIdProduct(), p2.getIdProduct());
-    }
-
-    @Test
     public void checkGetAllProvidersByProducts(){
         pm1.addProvider(p1);
         pm.addProduct(p);
@@ -79,8 +48,8 @@ public class ProductManagerTest {
         List<Provider> pl = pm.getAllProvidersByProducts(p);
         Provider p1 = pl.get(0);
 
-        assertEquals(0, p1.getIdProvider());
-        assertEquals("Dostawca", p1.getProviderName());
+        assertEquals(1, p1.getIdProvider());
+        assertEquals("Dostawca2", p1.getProviderName());
     }
 
     @Test
@@ -88,8 +57,7 @@ public class ProductManagerTest {
         pm1.addProvider(p1);
         pm.addProduct(p);
 
-        int count = pm.deleteAllProductsByProvider(p1);
-
-        assertEquals(1, count);
+        assertEquals(1, pm.deleteAllProductsByProvider(p1));
     }
+
 }
