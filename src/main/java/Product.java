@@ -49,9 +49,7 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public double getPrice() {
-        return price;
-    }
+    public double getPrice() { return price; }
 
     public void setPrice(double price) {
         this.price = price;

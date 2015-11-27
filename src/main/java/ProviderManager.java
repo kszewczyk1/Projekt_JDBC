@@ -57,6 +57,7 @@ public class ProviderManager {
     public void deleteProvider(int idProvider){
         try {
             deleteProviderStmt.setInt(1, idProvider);
+
             deleteProviderStmt.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
